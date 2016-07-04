@@ -1,0 +1,33 @@
+{
+  "name": "your-app",
+  "description": "Description",
+  "author": "Your Name",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "start": "brunch watch --server",
+    "prod": "brunch build --production"
+  },
+  "dependencies": {
+    "d3": "^4.0.0",
+    "domjson": "git+https://github.com/mootari/domJSON.git#feature/handle-exceptions",
+    "render-machine-3js": "^0.1.1",
+    "sass-brunch": "^2.6.3",
+    "three": "^0.78.0",
+    "three-orbit-controls": "^72.0.0",
+    "three-trackballcontrols": "0.0.5"
+  },
+  "devDependencies": {
+    "auto-reload-brunch": "^2.0.0",
+    "babel-brunch": "~6.0.0",
+    "babel-preset-es2015": "~6.3.13",
+    "brunch": "^2.4.0",
+    "clean-css-brunch": "^2.0.0",
+    "css-brunch": "^2.0.0",
+    "javascript-brunch": "^2.0.0",
+    "uglify-js-brunch": "^2.0.0"
+  }
+}

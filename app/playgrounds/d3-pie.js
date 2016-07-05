@@ -67,7 +67,7 @@ export default (parentNode, data) => {
 
   root.x = 0;
   root.y = 0;
-  root.r = 20000;
+  root.r = 200;
   root.start = 0;
   root.center = Math.PI;
   root.end = Math.PI * 2;

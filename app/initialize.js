@@ -3,8 +3,9 @@
 import * as domJSON from 'domjson';
 import loadDOM from './modules/remote-dom';
 
-import playgroundD3 from './playgrounds/d3';
-import playground3s from './playgrounds/three';
+import pg_d3_pie from './playgrounds/d3-pie';
+import pg_d3_force from './playgrounds/d3-force';
+import pg_3s from './playgrounds/three';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -19,8 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
       domProperties: false
     });
     const container = document.getElementById('app');
-    playgroundD3(container, data);
-    // playground3s(container, data);
+    pg_d3_force(container, data);
 
   });
 

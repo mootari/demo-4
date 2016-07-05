@@ -57,16 +57,17 @@ g.treemap .node {
 
 .playground-d3 {
   .node {
-    //fill: none;
-    //fill: rgba(red, .1);
-    //fill: black;
-    //stroke: black;
-    stroke-width: .1px;
+    fill: black;
+
+    &.root {
+      fill: rgba(black, .1);
+      //stroke: rgba(black, .3);
+      stroke-width: 50px;
+    }
   }
   .link {
     stroke: black;
-    stroke-width: .4px;
-    display: none;
+    stroke-width: 1px;
   }
   .label {
     font-size: 8px;

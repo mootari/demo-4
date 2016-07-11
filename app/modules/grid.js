@@ -4,7 +4,7 @@ import * as d3 from 'd3';
 
 function grid(selection, zoom, tickSpacing = 100) {
 
-  function axis(alignment, tickPadding = -20) {
+  function axis(alignment) {
     const map = {
       axis: {
         left:   'axisLeft',
@@ -24,6 +24,12 @@ function grid(selection, zoom, tickSpacing = 100) {
         top:    ['left', 'right'],
         bottom: ['left', 'right']
       },
+      tickPadding: {
+        left:   -35,
+        right:  35,
+        top:    -20,
+        bottom: 20
+      },
       ticks: {
         left:    (bbox) => bbox.height / tickSpacing,
         right:   (bbox) => bbox.height / tickSpacing,
@@ -39,7 +45,7 @@ function grid(selection, zoom, tickSpacing = 100) {
     };
 
     const scale = d3.scaleLinear();
-    const axis  = d3[map.axis[alignment]](scale).tickPadding(tickPadding);
+    const axis  = d3[map.axis[alignment]](scale).tickPadding(map.tickPadding[alignment]);
     const group = d3.select(document.createElementNS('http://www.w3.org/2000/svg', 'g'));
     let lastTransform;
 

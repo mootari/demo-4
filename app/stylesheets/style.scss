@@ -80,3 +80,29 @@ g.treemap .node {
   }
 
 }
+.pg-d3-maze {
+  $stroke-scale: .25;
+
+  .node {
+    opacity: 1;
+    .direction, .area {
+      stroke: rgba(#888, 1);
+    }
+    .area {
+      opacity: .8;
+      stroke-width: 2px * $stroke-scale;
+    }
+    .direction {
+      stroke-width: 1px * $stroke-scale;
+    }
+    .bone {
+      display: none;
+    }
+  }
+  @at-root .hover .node:not(.active-path) {
+    opacity: .5;
+    .area, .direction {
+      fill: rgba(white, 0);
+    }
+  }
+}

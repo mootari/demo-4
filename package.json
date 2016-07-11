@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "d3": "^4.0.0",
+    "d3-scale-chromatic": "^1.0.0",
+    "dat-gui": "^0.5.0",
     "domjson": "git+https://github.com/mootari/domJSON.git#feature/handle-exceptions",
     "render-machine-3js": "^0.1.1",
     "sass-brunch": "^2.6.3",

@@ -37,8 +37,9 @@ function applyLayout(root, options) {
   const offset = options.forkOffset;
   const spacing = options.forkSpacing;
   const direction = {
-    left: -1,
-    right: 1
+    left: d => (-1),
+    right: d => (1),
+    altDepth: d => (d.depth % 2 * 2 - 1)
   }[options.forkStart];
 
   const indexOffset = {
@@ -60,10 +61,11 @@ function applyLayout(root, options) {
     // d.length += Math.floor((d.spread - 1) / (root.spread - 1) * 20);
     d.length += d.maxDepth - d.depth;
     if(d.parent) {
+      const dir = direction(d);
       const single = d.parent.children.length < 2 || d.parent.children.length == d.index + 1;
       // Oscillate between left and right side of the parent.
-      const a = single ? 0 : (d.index % 2 ? -1 : 1) * childAngle * direction;
-      const x = single ? 0 : (d.index % 2 * 2 - 1) * direction;
+      const a = single ? 0 : (d.index % 2 ? -1 : 1) * childAngle * dir;
+      const x = single ? 0 : (d.index % 2 * 2 - 1) * dir;
       const y = single ? d.parent.length + 1 : offset + (d.index + 1 + indexOffset(d)) * (d.parent.length - offset) / d.parent.children.length;
 
       const cos = Math.cos(d.parent.a);
@@ -176,7 +178,7 @@ function init(parentNode, data) {
   const ui = uiHelper(new DatGui);
   ui.addSection('Layout', [
     // ['forkLastExtend', true ],
-    ['forkStart',      'right', [['left', 'right']] ],
+    ['forkStart',      'right', [['left', 'right', 'altDepth']] ],
     ['forkLayout',     'alt',   [['alt', 'across']] ],
     ['forkOffset',     3.5,     [0, 10], (g) => g.step(.5) ],
     ['forkSpacing',    1,       [0, 10], (g) => g.step(.5) ]
